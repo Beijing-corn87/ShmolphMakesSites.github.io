@@ -179,6 +179,7 @@
       <ul>
         <li><button>Option 1</button></li>
         <li><button>Option 2</button></li>
+        <li><a href="generator.html"><button>Download Page</button></a></li>
       </ul>
       <div class="debug-container">
         <label for="debugInput">Enter Debug Code:</label>
@@ -265,11 +266,10 @@
     }
     
     window.onload = function() {
-      if (localStorage.getItem('userAuth')) {
-        showLogin();
-      } else {
-        showSignup();
+      if (!localStorage.getItem('userAuth')) {
+        localStorage.setItem('userAuth', JSON.stringify({ username: '123', password: '123' }));
       }
+      showLogin();
     };
   </script>
 </body>
